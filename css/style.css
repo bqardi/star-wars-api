@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+
+:root {
+    --theme-background: #fff;
+    --theme-text: #000;
+    --theme-link: indigo;
+    --theme-link-hover: crimson;
+}
+
+body {
+    color: var(--theme-text);
+    background-color: var(--theme-background);
+}
+
+a {
+    text-decoration: none;
+    color: var(--theme-link);
+    transition: color 300ms;
+}
+
+a:hover {
+    color: var(--theme-link-hover);
+}
