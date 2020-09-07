@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(25, 125, 225);
+}
+a:hover{
+    color: rgb(20, 100, 200);
+}
+p{
+    margin-bottom: 8px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.signature{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(128, 128, 128);
+    font-size: 1.1rem;
+}
+.signature-name{
+    color: rgb(64, 64, 64);
+    font-weight: bold;
+}
+
+#background-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    transition: 300ms linear;
+}
+#background-overlay .content-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#background-overlay .content-centered div{
+    position: absolute;
+}
+.loader {
+    border: 5px solid rgb(145, 145, 145);
+    border-top: 5px solid rgb(88, 88, 88);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* .loader {
+    top: -10px;
+    left: -40px;
+    border: 6px solid rgba(160, 182, 255, 0.8);
+    border-radius: 50%;
+    width: 80px;
+    height: 120px;
+    animation: spin 800ms ease-in-out infinite alternate;
+}
+.loader2 {
+    top: -50px;
+    left: -30px;
+    border: 4px solid rgba(247, 255, 176, 0.8);
+    border-radius: 50%;
+    width: 100px;
+    height: 120px;
+    animation: spin 1200ms ease-in-out infinite alternate;
+}
+.loader3 {
+    top: 0;
+    left: 0;
+    border: 5px solid rgba(167, 255, 171, 0.8);
+    border-radius: 50%;
+    width: 120px;
+    height: 100px;
+    animation: spin 1000ms ease-in-out infinite alternate;
+}
+.loader4 {
+    top: -20px;
+    left: -50px;
+    border: 3px solid rgba(255, 163, 163, 0.7);
+    border-radius: 50%;
+    width: 90px;
+    height: 70px;
+    animation: spin 1100ms ease-in-out infinite alternate;
+}
+@keyframes spin {
+    0% { transform: scale(1) rotate(0); }
+    100% { transform: scale(2) rotate(720deg); }
+} */
+
+.vehicles{
+    display: grid;
+    grid-template-columns: 160px 2fr;
+    min-height: 20px;
+}
+
+.buttons button{
+    padding: 10px 20px;
+    margin: 10px 0 20px;
+    border: none;
+    background-color: rgb(24, 121, 206);
+    color: rgb(227, 239, 255);
+    min-width: 100px;
+    cursor: pointer;
+    transition: 300ms linear;
+}
+.buttons button:hover{
+    background-color: rgb(26, 131, 223);
+    color: rgb(255, 255, 255);
+}
