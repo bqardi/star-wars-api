@@ -244,7 +244,7 @@ function showListItem(url) {
                         });
                     }
                 } else {
-                    let isUrl = /^http:\/\//.test(entry[1]);
+                    let isUrl = /^https:\/\//.test(entry[1]);
                     if (!isUrl && entry[0] != "created" && entry[0] != "edited") {
                         keyElement.textContent = entry[0];
                         valueElement.textContent = entry[1];
