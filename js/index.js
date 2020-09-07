@@ -90,12 +90,12 @@ function getData(page) {
     }
     currentPage = page;
     apiData = [];
+    console.log(`https://swapi.dev/api/${type}?page=${page}`);
     fetchData(`https://swapi.dev/api/${type}?page=${page}`, url);
 }
 
 function fetchData(pageUrl, url) {
     apiData.push("");
-    console.log(pageUrl);
     fetch(pageUrl)
         .then(res => res.json())
         .then(data => {
