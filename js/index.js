@@ -95,6 +95,7 @@ function getData(page) {
 
 function fetchData(pageUrl, url) {
     apiData.push("");
+    console.log(pageUrl);
     fetch(pageUrl)
         .then(res => res.json())
         .then(data => {
