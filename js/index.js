@@ -26,16 +26,14 @@ fetchPrev.addEventListener("click", function(event) {
     event.preventDefault();
     let url = event.target.href;
     let arr = url.split("=");
-    currentPage = arr[arr.length - 1];
-    getData(currentPage);
+    getData(arr[arr.length - 1]);
 });
 
 fetchNext.addEventListener("click", function(event) {
     event.preventDefault();
     let url = event.target.href;
     let arr = url.split("=");
-    currentPage = arr[arr.length - 1];
-    getData(currentPage);
+    getData(arr[arr.length - 1]);
 });
 
 starWarsList.addEventListener("click", function(event) {
@@ -127,6 +125,9 @@ function fetchData(pageUrl, url) {
             if (url && url.get("id")) {
                 showListItem(url);
             }
+        })
+        .catch(err => {
+            console.log(err);
         });
 }
 
