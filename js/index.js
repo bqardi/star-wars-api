@@ -130,40 +130,40 @@ function fetchData(pageUrl, url) {
         });
 }
 
-function getAllData() {
-    overlay.style.display = "flex";
-    apiData = [];
-    let url = new URLSearchParams(window.location.search);
-    let type = url.get("type");
-    if (!type) {
-        type = "people";
-    }
-    fetchAllData(`https://swapi.dev/api/${type}`, url);
-}
+// function getAllData() {
+//     overlay.style.display = "flex";
+//     apiData = [];
+//     let url = new URLSearchParams(window.location.search);
+//     let type = url.get("type");
+//     if (!type) {
+//         type = "people";
+//     }
+//     fetchAllData(`https://swapi.dev/api/${type}`, url);
+// }
 
-function fetchAllData(pageUrl, queryString) {
-    apiData.push("");
-    fetch(pageUrl)
-        .then(res => res.json())
-        .then(data => {
-            data.results.forEach(res => {
-                apiData.push(res);
-            });
-            if (data.next) {
-                if (queryString) {
-                    fetchAllData(data.next, queryString);
-                } else {
-                    fetchAllData(data.next);
-                }
-            } else {
-                overlay.style.display = "none";
-                createList();
-                if (queryString && queryString.get("id")) {
-                    showListItem(queryString);
-                }
-            }
-        });
-}
+// function fetchAllData(pageUrl, queryString) {
+//     apiData.push("");
+//     fetch(pageUrl)
+//         .then(res => res.json())
+//         .then(data => {
+//             data.results.forEach(res => {
+//                 apiData.push(res);
+//             });
+//             if (data.next) {
+//                 if (queryString) {
+//                     fetchAllData(data.next, queryString);
+//                 } else {
+//                     fetchAllData(data.next);
+//                 }
+//             } else {
+//                 overlay.style.display = "none";
+//                 createList();
+//                 if (queryString && queryString.get("id")) {
+//                     showListItem(queryString);
+//                 }
+//             }
+//         });
+// }
 
 function createList(page = null) {
     starWarsList.querySelectorAll("*").forEach(function(element) {
@@ -237,8 +237,8 @@ function showListItem(url) {
                                         if (event.target.classList.contains("detailsLink")) {
                                             event.preventDefault();
                                             window.history.pushState({}, "", event.target.href);
-                                            let url = new URLSearchParams(window.location.search);
-                                            showListItem(url);
+                                            let urlParam = new URLSearchParams(window.location.search);
+                                            showListItem(urlParam);
                                         }
                                     });
                                 });
@@ -255,7 +255,6 @@ function showListItem(url) {
                 }
             });
             Promise.all(fetches).then(() => {
-                console.log("Hello")
                 overlay.style.display = "none";
             });
         });
