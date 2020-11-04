@@ -86,7 +86,7 @@ function getData(page) {
     let url = new URLSearchParams(window.location.search);
     let type = url.get("type");
     if (!type) {
-        type = "people";
+        type = "people/";
     }
     currentPage = page;
     apiData = [];
