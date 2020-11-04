@@ -241,7 +241,7 @@ function closeWindow(event) {
     if (page) {
         pageStr = `&page=${page}`;
     }
-    window.history.pushState({}, "", `/index.html?type=${type}${pageStr}`);
+    window.history.pushState({}, "", `?type=${type}${pageStr}`);
     let listTypesLink = document.querySelectorAll(".listTypes__link");
     listTypesLink.forEach(link => {
         if (link.dataset.type == type) {
