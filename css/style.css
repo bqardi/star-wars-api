@@ -378,3 +378,9 @@ img {
         transform: rotate(360deg)
     }
 }
+
+.modal{
+    width: 90vw;
+    height: 50vh;
+    background-color: white;
+}

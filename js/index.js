@@ -24,7 +24,7 @@ let gifs = [
 
 fetchPrev.addEventListener("click", function(event) {
     event.preventDefault();
-    let url = this.href;
+    let url = event.target.href;
     let arr = url.split("=");
     currentPage = arr[arr.length - 1];
     getData(currentPage);
@@ -32,7 +32,7 @@ fetchPrev.addEventListener("click", function(event) {
 
 fetchNext.addEventListener("click", function(event) {
     event.preventDefault();
-    let url = this.href;
+    let url = event.target.href;
     let arr = url.split("=");
     currentPage = arr[arr.length - 1];
     getData(currentPage);
@@ -48,6 +48,8 @@ starWarsList.addEventListener("click", function(event) {
 });
 
 listItem.addEventListener("click", closeWindow);
+
+window.addEventListener("keyup", escKeyPressed);
 
 listItem.querySelector(".listItem__close").addEventListener("click", closeWindow);
 
@@ -95,7 +97,6 @@ function getData(page) {
 
 function fetchData(pageUrl, url) {
     apiData.push("");
-    console.log(pageUrl);
     fetch(pageUrl)
         .then(res => res.json())
         .then(data => {
@@ -258,6 +259,12 @@ function showListItem(url) {
                 overlay.style.display = "none";
             });
         });
+}
+
+function escKeyPressed(event){
+    if (event.key === "Escape" && listItem.classList.contains("js-display")) {
+        closeWindow(event);
+    }
 }
 
 function closeWindow(event) {
