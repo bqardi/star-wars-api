@@ -114,9 +114,9 @@ function fetchData(pageUrl, url) {
                 prev = 1;
             }
 
-            fetchPrev.href = `/index.html?type=${type}&page=${prev}`;
-            fetchNext.href = `/index.html?type=${type}&page=${next}`;
-            window.history.pushState({}, "", `/index.html?type=${type}&page=${currentPage}`);
+            fetchPrev.href = `?type=${type}&page=${prev}`;
+            fetchNext.href = `?type=${type}&page=${next}`;
+            window.history.pushState({}, "", `?type=${type}&page=${currentPage}`);
 
             data.results.forEach(res => {
                 apiData.push(res);
@@ -197,7 +197,7 @@ function showListItem(url) {
                             let currentFetch = fetch(`https://swapi.dev/api/${linkType}/${linkID}/`)
                                 .then(res => res.json())
                                 .then(data => {
-                                    newRowValueElement.innerHTML = `<a class="detailsLink" href="/index.html?type=${linkType}${pageStr}&id=${linkID}">${data.name}</a>`;
+                                    newRowValueElement.innerHTML = `<a class="detailsLink" href="?type=${linkType}${pageStr}&id=${linkID}">${data.name}</a>`;
                                     newRowValueElement.addEventListener("click", function(event) {
                                         if (event.target.classList.contains("detailsLink")) {
                                             event.preventDefault();
