@@ -86,16 +86,15 @@ function getData(page) {
     let url = new URLSearchParams(window.location.search);
     let type = url.get("type");
     if (!type) {
-        type = "people/";
+        type = "people";
     }
     currentPage = page;
     apiData = [];
-    fetchData(`https://swapi.dev/api/${type}?page=${page}`, url);
+    fetchData(`https://swapi.dev/api/${type}/?page=${page}`, url);
 }
 
 function fetchData(pageUrl, url) {
     apiData.push("");
-    console.log(pageUrl);
     fetch(pageUrl)
         .then(res => res.json())
         .then(data => {
@@ -131,41 +130,6 @@ function fetchData(pageUrl, url) {
             console.log(err);
         });
 }
-
-// function getAllData() {
-//     overlay.style.display = "flex";
-//     apiData = [];
-//     let url = new URLSearchParams(window.location.search);
-//     let type = url.get("type");
-//     if (!type) {
-//         type = "people";
-//     }
-//     fetchAllData(`https://swapi.dev/api/${type}`, url);
-// }
-
-// function fetchAllData(pageUrl, queryString) {
-//     apiData.push("");
-//     fetch(pageUrl)
-//         .then(res => res.json())
-//         .then(data => {
-//             data.results.forEach(res => {
-//                 apiData.push(res);
-//             });
-//             if (data.next) {
-//                 if (queryString) {
-//                     fetchAllData(data.next, queryString);
-//                 } else {
-//                     fetchAllData(data.next);
-//                 }
-//             } else {
-//                 overlay.style.display = "none";
-//                 createList();
-//                 if (queryString && queryString.get("id")) {
-//                     showListItem(queryString);
-//                 }
-//             }
-//         });
-// }
 
 function createList(page = null) {
     starWarsList.querySelectorAll("*").forEach(function(element) {
@@ -212,7 +176,6 @@ function showListItem(url) {
                 let clone = template.content.cloneNode(true);
                 let keyElement = clone.querySelector(".listItem__key");
                 let valueElement = clone.querySelector(".listItem__value");
-                // listItem.querySelector(".listItem__title").textContent = url.get("name");
                 if (entry[0] == "name") {
                     listItem.querySelector(".listItem__title").textContent = entry[1];
                 }
